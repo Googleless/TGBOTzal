@@ -62,7 +62,7 @@ async def services(message: types.Message):
 @dp.message(StateFilter(InMenu.in_menu), lambda message: message.text == "💵Товары")
 async def goods(message: types.Message):
     await message.answer("Показываем товары...", reply_markup=klava.goods_kb)
-    await message.answer("Выберите товар: ", reply_markup=klava.simple_goods_kb)
+    await message.answer("Выберите товар: ", reply_markup=klava.simple_menu_kb)
 
 
 @dp.message(StateFilter(InMenu.in_menu), lambda message: message.text == "❔Информация")

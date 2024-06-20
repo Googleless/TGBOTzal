@@ -66,7 +66,8 @@ goods_kb = InlineKeyboardMarkup(
             InlineKeyboardButton(text="placeholder", url='https://www.youtube.com/watch?v=hWvM6de6mG8'),
             InlineKeyboardButton(text="placeholder", url='https://www.youtube.com/watch?v=fC7oUOUEEi4')
         ],
-    ]
+    ],
+    one_time_keyboard=True,
 )
 # f[f[f[f[f
 # ❔
