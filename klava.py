@@ -20,6 +20,7 @@ main_kn = ReplyKeyboardMarkup(
     input_field_placeholder="Выберите действие"
 )
 
+# подменю из менюглавное
 # меню2
 menu_kb = ReplyKeyboardMarkup(
     keyboard=[
@@ -36,6 +37,7 @@ menu_kb = ReplyKeyboardMarkup(
     onetime_keyboard=True
 )
 
+# тут подменю из меню2
 # услуги
 services_kb = ReplyKeyboardMarkup(
     keyboard=[
@@ -83,7 +85,8 @@ info_kb = ReplyKeyboardMarkup(
     one_time_keyboard=True
 )
 
-simple_menu_kb  = ReplyKeyboardMarkup(
+# создаю кнопку для возвращения в меню2 для удобства и использования позже при возможности
+simple_menu_kb = ReplyKeyboardMarkup(
     keyboard=[
         [
             KeyboardButton(text="📒Меню")
@@ -93,6 +96,7 @@ simple_menu_kb  = ReplyKeyboardMarkup(
     one_time_keyboard=True
 )
 
+# это подменю ❔
 inlineinfo_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
@@ -102,6 +106,7 @@ inlineinfo_kb = InlineKeyboardMarkup(
     ]
 )
 
+# подменю ❔
 developers_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
@@ -113,7 +118,10 @@ developers_kb = InlineKeyboardMarkup(
         ]
     ]
 )
+###########################################################################################################
 
+
+# тут всё для гороскопа:
 # инлайны гороскоп стр1
 horoscope_kb1 = InlineKeyboardMarkup(
     inline_keyboard=[
@@ -163,16 +171,4 @@ reply_kb2 = ReplyKeyboardMarkup(
     ],
     resize_keyboard=True  # Делаем клавиатуру меньше
 )
-
-
-
-
-#     reply_keyboard=[
-#         [
-#             KeyboardButton(text="Первая страница гороскопа"),
-#             KeyboardButton(text="Главное меню"),
-#         ]
-#     ],
-#     resize_keyboard=True,
-#     one_time_keyboard=True
-# )
+###########################################################################################################
