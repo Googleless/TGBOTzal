@@ -5,7 +5,15 @@ from aiogram.types import (
     InlineKeyboardButton
 )
 
-BOT_TOKEN = "7341504754:AAFpVXDWrVbDCsNrJZNUoWOE5Je4e6KI5jo"
+
+goods_amulets_arr = []
+goods_runes_arr = []
+goods_books_arr = []
+goods_cards_arr = []
+goods_candles_arr = []
+
+
+BOT_TOKEN = "7341504754:AAHPS1NXW9IrzWGgGtKeTvTx0p5ooBW1PvY"
 
 # менюглавное
 main_kn = ReplyKeyboardMarkup(
@@ -25,9 +33,9 @@ main_kn = ReplyKeyboardMarkup(
 menu_kb = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="📝Услуги"),
-            KeyboardButton(text="💵Товары"),
-            KeyboardButton(text="❔Информация"),
+            KeyboardButton(text="🧝‍Услуги"),
+            KeyboardButton(text="🔮Товары"),
+            KeyboardButton(text="ℹИнформация"),
         ],
         [
             KeyboardButton(text="В главное меню")
@@ -40,34 +48,77 @@ menu_kb = ReplyKeyboardMarkup(
 
 # тут подменю из меню2
 # услуги
-services_kb = ReplyKeyboardMarkup(
+services_nav_kb = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="😱Порча"),
+            KeyboardButton(text="🪦Порча"),
             KeyboardButton(text="🤔Расклад"),
             KeyboardButton(text="🤍Приворот"),
-            KeyboardButton(text="🕺Уворот")
+            KeyboardButton(text="🫠Восковая отливка")
         ],
         [
             KeyboardButton(text="📒Меню")
         ]
     ],
     resize_keyboard=True,
-    one_time_keyboard=True,
     input_field_placeholder="Выберите услугу"
 )
 
-# товары
-goods_kb = InlineKeyboardMarkup(
+# услуги.порча
+porcha_btn  = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="placeholder", url='https://www.youtube.com/watch?v=Yb6dZ1IFlKc'),
-            InlineKeyboardButton(text="placeholder", url='https://www.youtube.com/watch?v=TIcxXJHNqPc'),
-            InlineKeyboardButton(text="placeholder", url='https://www.youtube.com/watch?v=hWvM6de6mG8'),
-            InlineKeyboardButton(text="placeholder", url='https://www.youtube.com/watch?v=fC7oUOUEEi4')
-        ],
+            InlineKeyboardButton(text="Наш эксперт по порчам, Вадим", url='https://t.me/rebdok')
+        ]
+    ]
+)
+# услуги.расклад
+spread_btn = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="Наш эксперт по раскладам, Ирина", url='https://t.me/velvetali')
+        ]
+    ]
+)
+# услуги.приворот
+privo_btn = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="Наш эксперт по приворотам, Вадим", url='https://t.me/rebdok')
+        ]
+    ]
+)
+# услуги.воск
+candle_btn = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="Наш эксперт по восковой отливке, Ирина", url='https://t.me/velvetali')
+        ]
+    ]
+)
+
+# товары навигация
+goods_nav_kb = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+              KeyboardButton(text="🧿Амулеты"),
+              KeyboardButton(text="♮Руны"),
+              KeyboardButton(text="📚Книги"),
+              KeyboardButton(text="🃏Карты таро"),
+              KeyboardButton(text="🕯️Свечи")
+        ]
     ],
     one_time_keyboard=True,
+    resize_keyboard=True,
+)
+goods_amulets_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="Клевер Удачи", url='https://ozon.ru/t/Dz7yyPr'),
+            InlineKeyboardButton(text="Рунический амулет на процветание и защиту", url='https://ozon.ru/t/AkbRPQ0'),
+            InlineKeyboardButton(text="")
+        ]
+    ]
 )
 # f[f[f[f[f
 # ❔
@@ -78,6 +129,16 @@ info_kb = ReplyKeyboardMarkup(
         ],
         [
             KeyboardButton(text="📒Меню")
+        ]
+    ],
+    resize_keyboard=True,
+    one_time_keyboard=True
+)
+# кнопка для главного меню
+back_to_menu_kb = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton(text="В главное меню")
         ]
     ],
     resize_keyboard=True,
@@ -99,21 +160,45 @@ simple_menu_kb = ReplyKeyboardMarkup(
 inlineinfo_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="Поддержка: ", url='https://t.me/+54jNcQ1e_wsxMzMy'),
+            InlineKeyboardButton(text="⚙Поддержка: ", url='https://t.me/+54jNcQ1e_wsxMzMy'),
             InlineKeyboardButton(text="Написать отзыв: ", url='https://t.me/+54jNcQ1e_wsxMzMy'),
         ]
     ]
 )
 
 # подменю ❔
-developers_kb = InlineKeyboardMarkup(
+artem = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="🌹Абрышкин Вадим, менеджер", url='https://t.me/rebdok'),
-            InlineKeyboardButton(text="💐Бондарева Ирина, тимлид", url='https://t.me/velvetali'),
-            InlineKeyboardButton(text="🚗Вакуленко Павел, разработчик", url='https://t.me/PDKukuruza'),
-            InlineKeyboardButton(text="🔫Землянский Филипп, разработчик", url='https://t.me/Googleless'),
             InlineKeyboardButton(text="🍺Попов Артём, тестировщик, аналитик", url='https://t.me/praporcshiccc')
+        ]
+    ]
+)
+vadim = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="🌹Абрышкин Вадим, менеджер", url='https://t.me/rebdok')
+        ]
+    ]
+)
+irina = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="💐Бондарева Ирина, руководитель рабочим процессом", url='https://t.me/velvetali')
+        ]
+    ]
+)
+pasha = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="🚗Вакуленко Павел, разработчик", url='https://t.me/PDKukuruza')
+        ]
+    ]
+)
+philip = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="🔫Землянский Филипп, разработчик", url='https://t.me/Googleless')
         ]
     ]
 )
@@ -122,52 +207,38 @@ developers_kb = InlineKeyboardMarkup(
 
 # тут всё для гороскопа:
 # инлайны гороскоп стр1
-horoscope_kb1 = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-            InlineKeyboardButton(text="♈Овен", url='https://horo.mail.ru/prediction/aries/today/'),
-            InlineKeyboardButton(text="♉Телец", url='https://horo.mail.ru/prediction/taurus/today/'),
-            InlineKeyboardButton(text="♊Близнецы", url='https://horo.mail.ru/prediction/gemini/today/'),
-            InlineKeyboardButton(text="♋Рак", url='https://horo.mail.ru/prediction/cancer/today/'),
-            InlineKeyboardButton(text="♌Лев", url='https://horo.mail.ru/prediction/leo/today/'),
-            InlineKeyboardButton(text="♍Дева", url='https://horo.mail.ru/prediction/virgo/today/'),
-            InlineKeyboardButton(text="♎Весы", url='https://horo.mail.ru/prediction/libra/today/'),
-        ]
-    ]
-)
-
-# гороскоп переход стр1
-reply_kb1 = ReplyKeyboardMarkup(
+horoscope_kb1 = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="Вторая страница гороскопа"),
-            KeyboardButton(text="В главное меню")
+            KeyboardButton(text="♈Овен"),
+            KeyboardButton(text="♉Телец"),
+            KeyboardButton(text="♊Близнецы"),
+            KeyboardButton(text="♋Рак"),
+            KeyboardButton(text="♌Лев"),
+            KeyboardButton(text="♍Дева"),
+            KeyboardButton(text="♎Весы"),
+            KeyboardButton(text="2"),
+            KeyboardButton(text="Назад")
         ]
     ],
-    resize_keyboard=True  # Делаем клавиатуру меньше
+    resize_keyboard=True,
+    one_time_keyboard=True,
 )
 
 # инлайны гороскоп стр2
-horoscope_kb2 = InlineKeyboardMarkup(
-    inline_keyboard=[
-        [
-            InlineKeyboardButton(text="♏Скорпион", url='https://horo.mail.ru/prediction/scorpio/today/'),
-            InlineKeyboardButton(text="♐Стрелец", url='https://horo.mail.ru/prediction/sagittarius/today/'),
-            InlineKeyboardButton(text="♑Козерог", url='https://horo.mail.ru/prediction/capricorn/today/'),
-            InlineKeyboardButton(text="♒Водолей", url='https://horo.mail.ru/prediction/aquarius/today/'),
-            InlineKeyboardButton(text="♓Рыбы", url='https://horo.mail.ru/prediction/pisces/today/'),
-        ]
-    ]
-)
-
-# гороскоп переход стр2
-reply_kb2 = ReplyKeyboardMarkup(
+horoscope_kb2 = ReplyKeyboardMarkup(
     keyboard=[
         [
-            KeyboardButton(text="Первая страница гороскопа"),
-            KeyboardButton(text="В главное меню")
+            KeyboardButton(text="♏Скорпион"),
+            KeyboardButton(text="♐Стрелец"),
+            KeyboardButton(text="♑Козерог"),
+            KeyboardButton(text="♒Водолей"),
+            KeyboardButton(text="♓Рыбы"),
+            KeyboardButton(text="1"),
+            KeyboardButton(text="Назад")
         ]
     ],
-    resize_keyboard=True  # Делаем клавиатуру меньше
+    resize_keyboard=True,
+    one_time_keyboard=True,
 )
 ###########################################################################################################
