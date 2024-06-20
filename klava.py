@@ -34,7 +34,8 @@ menu_kb = ReplyKeyboardMarkup(
         ]
     ],
     resize_keyboard=True,
-    onetime_keyboard=True
+    onetime_keyboard=True,
+    input_field_placeholder="Выберите желаемое действие"
 )
 
 # тут подменю из меню2
@@ -52,25 +53,22 @@ services_kb = ReplyKeyboardMarkup(
         ]
     ],
     resize_keyboard=True,
-    one_time_keyboard=True
+    one_time_keyboard=True,
+    input_field_placeholder="Выберите услугу"
 )
 
 # товары
-goods_kb = ReplyKeyboardMarkup(
-    keyboard=[
+goods_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
         [
-            KeyboardButton(text="placeholder"),
-            KeyboardButton(text="placeholder"),
-            KeyboardButton(text="placeholder"),
-            KeyboardButton(text="placeholder")
+            InlineKeyboardButton(text="placeholder", url='https://www.youtube.com/watch?v=Yb6dZ1IFlKc'),
+            InlineKeyboardButton(text="placeholder", url='https://www.youtube.com/watch?v=TIcxXJHNqPc'),
+            InlineKeyboardButton(text="placeholder", url='https://www.youtube.com/watch?v=hWvM6de6mG8'),
+            InlineKeyboardButton(text="placeholder", url='https://www.youtube.com/watch?v=fC7oUOUEEi4')
         ],
-        [
-            KeyboardButton(text="📒Меню")
-        ]
-    ],
-    resize_keyboard=True
+    ]
 )
-
+# f[f[f[f[f
 # ❔
 info_kb = ReplyKeyboardMarkup(
     keyboard=[
