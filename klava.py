@@ -65,7 +65,7 @@ services_nav_kb = ReplyKeyboardMarkup(
 )
 
 # услуги.порча
-porcha_btn  = InlineKeyboardMarkup(
+porcha_btn = InlineKeyboardMarkup(
     inline_keyboard=[
         [
             InlineKeyboardButton(text="Наш эксперт по порчам, Вадим", url='https://t.me/rebdok')
@@ -102,21 +102,50 @@ goods_nav_kb = ReplyKeyboardMarkup(
     keyboard=[
         [
               KeyboardButton(text="🧿Амулеты"),
-              KeyboardButton(text="♮Руны"),
+              KeyboardButton(text="🪬Руны"),
               KeyboardButton(text="📚Книги"),
               KeyboardButton(text="🃏Карты таро"),
               KeyboardButton(text="🕯️Свечи")
+        ],
+        [
+            KeyboardButton(text="📒Меню")
         ]
     ],
-    one_time_keyboard=True,
+    input_field_placeholder="Выберите товар",
     resize_keyboard=True,
 )
 goods_amulets_kb = InlineKeyboardMarkup(
     inline_keyboard=[
         [
-            InlineKeyboardButton(text="Клевер Удачи", url='https://ozon.ru/t/Dz7yyPr'),
-            InlineKeyboardButton(text="Рунический амулет на процветание и защиту", url='https://ozon.ru/t/AkbRPQ0'),
-            InlineKeyboardButton(text="")
+            InlineKeyboardButton(text="Наш менеджер по амулетам, Вадим", url='https://t.me/rebdok')
+        ]
+    ]
+)
+goods_runes_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="Наш менеджер по рунам, Вадим", url='https://t.me/rebdok')
+        ]
+    ]
+)
+goods_books_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="Наш менеджер по книгам, Ирина", url='https://t.me/velvetali')
+        ]
+    ]
+)
+goods_cards_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="Наш менеджер по картам таро, Ирина", url='https://t.me/velvetali')
+        ]
+    ]
+)
+goods_candles_kb = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(text="Наш менеджер по свечам, Вадим", url='https://t.me/rebdok')
         ]
     ]
 )

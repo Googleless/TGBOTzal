@@ -63,8 +63,7 @@ async def services(message: types.Message):
 
 @dp.message(StateFilter(InMenu.in_menu), lambda message: message.text in ["🔮Товары", "/goods"])
 async def goods(message: types.Message):
-    await message.answer("Показываем товары...", reply_markup=klava.goods_nav_kb)
-    await message.answer("Выберите товар: ", reply_markup=klava.simple_menu_kb)
+    await message.answer("Выберите товар:", reply_markup=klava.goods_nav_kb)
 
 
 @dp.message(StateFilter(InMenu.in_menu), lambda message: message.text in ["ℹИнформация", "/info"])
@@ -109,6 +108,37 @@ async def candle(message: types.Message):
 ############################################################################################################
 
 
+# 🧿Амулеты
+@dp.message(lambda message: message.text in ["🧿Амулеты", "/amulets"])
+async def amulets(message: types.Message):
+    await message.answer("Амулеты, талисманы и обереги - это предметы, помогающие защититься от негатива окружающего мира. в первую очередь. Многие из этих предметов пришли к нам ещё из древних времен, и люди продолжают ими активно пользоваться.", reply_markup=klava.goods_amulets_kb)
+
+
+# 🪬Руны
+@dp.message(lambda message: message.text in ["🪬Руны", "/runes"])
+async def runes(message: types.Message):
+    await message.answer("Выбор рун, которые можно приобрести в нашем магазине.", reply_markup=klava.goods_runes_kb)
+
+
+# 📚Книги
+@dp.message(lambda message: message.text in ["📚Книги", "/books"])
+async def books(message: types.Message):
+    await message.answer("Выбор книг, которые можно приобрести в нашем магазине.", reply_markup=klava.goods_books_kb)
+
+
+# 🃏Карты таро
+@dp.message(lambda message: message.text in ["🃏Карты таро", "/cards"])
+async def cards(message: types.Message):
+    await message.answer("Выбор карт, которые можно приобрести в нашем магазине.", reply_markup=klava.goods_cards_kb)
+
+
+# 🕯️Свечи
+@dp.message(lambda message: message.text in ["🕯️Свечи", "/candles"])
+async def candles(message: types.Message):
+    await message.answer("Выбор свечей, которые можно приобрести в нашем магазине.", reply_markup=klava.goods_candles_kb)
+############################################################################################################
+
+
 # кнопка возврата в меню
 @dp.message(lambda message: message.text in ["В главное меню", "Назад"])
 async def main_menu(message: types.Message, state: FSMContext):
@@ -119,64 +149,64 @@ async def main_menu(message: types.Message, state: FSMContext):
 ###########################################################################################################
 
 
-@dp.message(StateFilter(HoroscopePages.first_page), lambda message: message.text in ["♈Овен", "/aries"])
+@dp.message(lambda message: message.text in ["♈Овен", "/aries"])
 async def aries_info(message: types.Message, state: FSMContext):
     await message.answer(f'{zodiacsigns.aries_text()}', reply_markup=klava.back_to_menu_kb)
     await state.set_state(None)
 
 
-@dp.message(StateFilter(HoroscopePages.first_page), lambda message: message.text in ["♉Телец", "/taurus"])
+@dp.message(lambda message: message.text in ["♉Телец", "/taurus"])
 async def taurus_info(message: types.Message, state: FSMContext):
     await message.answer(f'{zodiacsigns.taurus_text()}', reply_markup=klava.back_to_menu_kb)
     await state.set_state(None)
 
 
-@dp.message(StateFilter(HoroscopePages.first_page), lambda message: message.text in ["♊Близнецы", "/gemini"])
+@dp.message(lambda message: message.text in ["♊Близнецы", "/gemini"])
 async def gemini_info(message: types.Message):
     await message.answer(f'{zodiacsigns.gemini_text()}', reply_markup=klava.back_to_menu_kb)
 
 
-@dp.message(StateFilter(HoroscopePages.first_page), lambda message: message.text in ["♋Рак", "/cancer"])
+@dp.message(lambda message: message.text in ["♋Рак", "/cancer"])
 async def cancer_info(message: types.Message):
     await message.answer(f'{zodiacsigns.cancer_text()}', reply_markup=klava.back_to_menu_kb)
 
 
-@dp.message(StateFilter(HoroscopePages.first_page), lambda message: message.text in ["♌Лев", "/leo"])
+@dp.message(lambda message: message.text in ["♌Лев", "/leo"])
 async def leo_info(message: types.Message):
     await message.answer(f'{zodiacsigns.leo_text()}', reply_markup=klava.back_to_menu_kb)
 
 
-@dp.message(StateFilter(HoroscopePages.first_page), lambda message: message.text in ["♍Дева", "/virgo"])
+@dp.message(lambda message: message.text in ["♍Дева", "/virgo"])
 async def virgo_info(message: types.Message):
     await message.answer(f'{zodiacsigns.virgo_text()}', reply_markup=klava.back_to_menu_kb)
 
 
-@dp.message(StateFilter(HoroscopePages.first_page), lambda message: message.text in ["♎Весы", "/libra"])
+@dp.message(lambda message: message.text in ["♎Весы", "/libra"])
 async def libra_info(message: types.Message):
     await message.answer(f'{zodiacsigns.libra_text()}', reply_markup=klava.back_to_menu_kb)
 
 
-@dp.message(StateFilter(HoroscopePages.second_page), lambda message: message.text in ["♏Скорпион", "/scorpio"])
+@dp.message(lambda message: message.text in ["♏Скорпион", "/scorpio"])
 async def scorpio_info(message: types.Message):
     await message.answer(f'{zodiacsigns.scorpio_text()}', reply_markup=klava.back_to_menu_kb)
 
 
-@dp.message(StateFilter(HoroscopePages.second_page), lambda message: message.text in ["♐Стрелец", "/scorpio"])
+@dp.message(lambda message: message.text in ["♐Стрелец", "/scorpio"])
 async def capricorn_info(message: types.Message):
     await message.answer(f'{zodiacsigns.sagittarius_text()}', reply_markup=klava.back_to_menu_kb)
 
 
-@dp.message(StateFilter(HoroscopePages.second_page), lambda message: message.text in ["♑Козерог", "/capricorn"])
+@dp.message(lambda message: message.text in ["♑Козерог", "/capricorn"])
 async def capricorn_info(message: types.Message):
     await message.answer(f'{zodiacsigns.capricorn_text()}', reply_markup=klava.back_to_menu_kb)
 
 
-@dp.message(StateFilter(HoroscopePages.second_page), lambda message: message.text in ["♒Водолей", "/aquarius"])
+@dp.message(lambda message: message.text in ["♒Водолей", "/aquarius"])
 async def aquarius_info(message: types.Message):
     await message.answer(f'{zodiacsigns.aquarius_text()}', reply_markup=klava.back_to_menu_kb)
 
 
-@dp.message(StateFilter(HoroscopePages.second_page), lambda message: message.text in ["♓Рыбы", "/pisces"])
+@dp.message(lambda message: message.text in ["♓Рыбы", "/pisces"])
 async def pisces_info(message: types.Message):
     await message.answer(f'{zodiacsigns.pisces_text()}', reply_markup=klava.back_to_menu_kb)
 
