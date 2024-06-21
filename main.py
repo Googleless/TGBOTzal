@@ -117,7 +117,8 @@ async def amulets(message: types.Message):
 # 🪬Руны
 @dp.message(lambda message: message.text in ["🪬Руны", "/runes"])
 async def runes(message: types.Message):
-    await message.answer("Выбор рун, которые можно приобрести в нашем магазине.", reply_markup=klava.goods_runes_kb)
+    await message.answer("""Одним из древнейших методов предсказания обретения мудрости является использование рун — алфавита древних германцев, скандинавов и других народов.
+Руны представляют собой не только набор символов, но и глубокую связь с культурой, мифологией и духовностью древних народов.""", reply_markup=klava.goods_runes_kb)
 
 
 # 📚Книги
@@ -129,13 +130,13 @@ async def books(message: types.Message):
 # 🃏Карты таро
 @dp.message(lambda message: message.text in ["🃏Карты таро", "/cards"])
 async def cards(message: types.Message):
-    await message.answer("Выбор карт, которые можно приобрести в нашем магазине.", reply_markup=klava.goods_cards_kb)
+    await message.answer("Таро – это система карт, каждая из которых обладает своим значением и помогает лучше понять прошлое, настоящее и будущее.", reply_markup=klava.goods_cards_kb)
 
 
 # 🕯️Свечи
 @dp.message(lambda message: message.text in ["🕯️Свечи", "/candles"])
 async def candles(message: types.Message):
-    await message.answer("Выбор свечей, которые можно приобрести в нашем магазине.", reply_markup=klava.goods_candles_kb)
+    await message.answer("Древняя практика, выдержавшая испытание временем, магия свечей — это мощный метод направления энергии и действий на реализацию ваших желаний. Это было распространено на протяжении веков, становясь все более популярной формой колдовства сегодня.", reply_markup=klava.goods_candles_kb)
 ############################################################################################################
 
 
@@ -151,64 +152,74 @@ async def main_menu(message: types.Message, state: FSMContext):
 
 @dp.message(lambda message: message.text in ["♈Овен", "/aries"])
 async def aries_info(message: types.Message, state: FSMContext):
-    await message.answer(f'{zodiacsigns.aries_text()}', reply_markup=klava.back_to_menu_kb)
-    await state.set_state(None)
+    await message.answer(f'{zodiacsigns.aries_text()}', reply_markup=klava.horoscope_kb1)
+    await state.set_state(HoroscopePages.first_page)
 
 
 @dp.message(lambda message: message.text in ["♉Телец", "/taurus"])
 async def taurus_info(message: types.Message, state: FSMContext):
-    await message.answer(f'{zodiacsigns.taurus_text()}', reply_markup=klava.back_to_menu_kb)
-    await state.set_state(None)
+    await message.answer(f'{zodiacsigns.taurus_text()}', reply_markup=klava.horoscope_kb1)
+    await state.set_state(HoroscopePages.first_page)
 
 
 @dp.message(lambda message: message.text in ["♊Близнецы", "/gemini"])
-async def gemini_info(message: types.Message):
-    await message.answer(f'{zodiacsigns.gemini_text()}', reply_markup=klava.back_to_menu_kb)
+async def gemini_info(message: types.Message, state: FSMContext):
+    await message.answer(f'{zodiacsigns.gemini_text()}', reply_markup=klava.horoscope_kb1)
+    await state.set_state(HoroscopePages.first_page)
 
 
 @dp.message(lambda message: message.text in ["♋Рак", "/cancer"])
-async def cancer_info(message: types.Message):
-    await message.answer(f'{zodiacsigns.cancer_text()}', reply_markup=klava.back_to_menu_kb)
+async def cancer_info(message: types.Message, state: FSMContext):
+    await message.answer(f'{zodiacsigns.cancer_text()}', reply_markup=klava.horoscope_kb1)
+    await state.set_state(HoroscopePages.first_page)
 
 
 @dp.message(lambda message: message.text in ["♌Лев", "/leo"])
-async def leo_info(message: types.Message):
-    await message.answer(f'{zodiacsigns.leo_text()}', reply_markup=klava.back_to_menu_kb)
+async def leo_info(message: types.Message, state: FSMContext):
+    await message.answer(f'{zodiacsigns.leo_text()}', reply_markup=klava.horoscope_kb1)
+    await state.set_state(HoroscopePages.first_page)
 
 
 @dp.message(lambda message: message.text in ["♍Дева", "/virgo"])
-async def virgo_info(message: types.Message):
-    await message.answer(f'{zodiacsigns.virgo_text()}', reply_markup=klava.back_to_menu_kb)
+async def virgo_info(message: types.Message, state: FSMContext):
+    await message.answer(f'{zodiacsigns.virgo_text()}', reply_markup=klava.horoscope_kb1)
+    await state.set_state(HoroscopePages.first_page)
 
 
 @dp.message(lambda message: message.text in ["♎Весы", "/libra"])
-async def libra_info(message: types.Message):
-    await message.answer(f'{zodiacsigns.libra_text()}', reply_markup=klava.back_to_menu_kb)
+async def libra_info(message: types.Message, state: FSMContext):
+    await message.answer(f'{zodiacsigns.libra_text()}', reply_markup=klava.horoscope_kb1)
+    await state.set_state(HoroscopePages.first_page)
 
 
 @dp.message(lambda message: message.text in ["♏Скорпион", "/scorpio"])
-async def scorpio_info(message: types.Message):
-    await message.answer(f'{zodiacsigns.scorpio_text()}', reply_markup=klava.back_to_menu_kb)
+async def scorpio_info(message: types.Message, state: FSMContext):
+    await message.answer(f'{zodiacsigns.scorpio_text()}', reply_markup=klava.horoscope_kb2)
+    await state.set_state(HoroscopePages.second_page)
 
 
 @dp.message(lambda message: message.text in ["♐Стрелец", "/scorpio"])
-async def capricorn_info(message: types.Message):
-    await message.answer(f'{zodiacsigns.sagittarius_text()}', reply_markup=klava.back_to_menu_kb)
+async def capricorn_info(message: types.Message, state: FSMContext):
+    await message.answer(f'{zodiacsigns.sagittarius_text()}', reply_markup=klava.horoscope_kb2)
+    await state.set_state(HoroscopePages.second_page)
 
 
 @dp.message(lambda message: message.text in ["♑Козерог", "/capricorn"])
-async def capricorn_info(message: types.Message):
-    await message.answer(f'{zodiacsigns.capricorn_text()}', reply_markup=klava.back_to_menu_kb)
+async def capricorn_info(message: types.Message, state: FSMContext):
+    await message.answer(f'{zodiacsigns.capricorn_text()}', reply_markup=klava.horoscope_kb2)
+    await state.set_state(HoroscopePages.second_page)
 
 
 @dp.message(lambda message: message.text in ["♒Водолей", "/aquarius"])
-async def aquarius_info(message: types.Message):
-    await message.answer(f'{zodiacsigns.aquarius_text()}', reply_markup=klava.back_to_menu_kb)
+async def aquarius_info(message: types.Message, state: FSMContext):
+    await message.answer(f'{zodiacsigns.aquarius_text()}', reply_markup=klava.horoscope_kb2)
+    await state.set_state(HoroscopePages.second_page)
 
 
 @dp.message(lambda message: message.text in ["♓Рыбы", "/pisces"])
-async def pisces_info(message: types.Message):
-    await message.answer(f'{zodiacsigns.pisces_text()}', reply_markup=klava.back_to_menu_kb)
+async def pisces_info(message: types.Message, state: FSMContext):
+    await message.answer(f'{zodiacsigns.pisces_text()}', reply_markup=klava.horoscope_kb2)
+    await state.set_state(HoroscopePages.second_page)
 
 
 # тут начинается логика гороскопа, идёт проверка на страницы, потом перекидывает
